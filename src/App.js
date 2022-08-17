@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import drumsOne from "./drum-1.wav";
 import drumsTwo from "./drum-2.wav";
 import drumsThree from "./drum-3.wav";
