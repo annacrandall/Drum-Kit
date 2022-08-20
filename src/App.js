@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import drumsOne from "./drum-1.wav";
 import drumsTwo from "./drum-2.wav";
 import drumsThree from "./drum-3.wav";
@@ -22,28 +23,27 @@ const drumKit = [
 function App() {
   const handleClick = (audio) => {
     const playAudio = new Audio(audio);
+    playAudio.volume = 0.3
     playAudio.play();
+  }
      
-     // const HandleKeyDown = (keyPress) ? => {
-    // if (certain key is pressed, trigger corresponding drum){
-    //    "Q" === obj of {keyPress: "Q"}; 
-    //    "W" === obj of {keyPress: "W"};
-    //    "E" === obj of {keyPress: "D"};
-    //    "A" === obj of {keyPress: "A"};
-    //    "S" === obj of {keyPress: "S"};
-    //    "D" === obj of {keyPress: "D"};
-    //    "Z" === obj of {keyPress: "Z"}; 
-    //    "X" === obj of {keyPress: "X"};
-    //    "C" === obj of {keyPress: "C"};
-    // }
-   // }
-    
-    //     
-    //   (how to add two events to one button)
-   // }
-   // }
+  const handleKeyDown = ({ key }) => {
+    const { audio } = drumKit.find(({ keyPress }) => keyPress.toLowerCase() === key.toLowerCase())
+    const playAudio = new Audio(audio);
+    playAudio.volume = 0.3
+    playAudio.play();
+    }
+        
+     // (how to add two events to one button)
+   
+     useEffect(() => {
+      window.addEventListener('keydown', handleKeyDown);
   
-  };
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }, []);
+  
   return (
     <section className="border-4 border-black m-10 p-10 rounded">
       <div className="border-2 border-black rounded drop-shadow">
@@ -58,7 +58,7 @@ function App() {
             key={keyPress}
             id={name}
             onClick={() => handleClick(audio)}
-            //onKeyDown = {() => handleClick(audio)} OR new const? 
+             
             type="button"
           >
             {keyPress}
