@@ -50,7 +50,7 @@ const App = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  });
 
   return (
     <section className="border-4 border-black m-10 p-10 rounded">
