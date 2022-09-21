@@ -22,7 +22,7 @@ const drumKit = [
 ];
 const App = () => {
   const [displayText, setDisplayText] = useState("");
-  const [volume, setVolume] = useState(0.04);
+  const [volume, setVolume] = useState(0.04); 
   const handleClick = (key) => {
     playAudio(key)
   }

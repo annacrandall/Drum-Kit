@@ -1,5 +1,11 @@
 ## Deploy Preview 
+To deploy project immediately: 
 [DrumKit App](https://main--serene-eclair-bcb7f3.netlify.app/) 
+
+## Description 
+This project was bootstrapped with Create React App and Tailwind CSS. 
+
+
 ## Available Scripts
 
 In the project directory, you can run:
